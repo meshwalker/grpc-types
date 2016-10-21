@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package identity;
+
+// Interface exported by the server.
+service UserManager {
+  rpc ListUsers(Empty) returns (ListUserResponse) {}
+  rpc CreateUser(CreateUserRequest) returns (User) {}
+  rpc UpdateUser(User) returns (User) {}
+  rpc DeleteUser(User) returns (Empty) {}
+}
+
+message Empty {}
+
+message ListUserResponse {
+    repeated User list = 1;
+}
+
+message CreateUserRequest {
+    string username = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string email = 4;
+    string mobile_phone = 5;
+    string password = 6;
+    string user_group = 7;
+    map<string, string> fields = 8;
+}
+
+message User {
+    int32 user_id = 1;
+    string username = 2;
+    string first_name = 3;
+    string last_name = 4;
+    string email = 5;
+    string mobile_phone = 6;
+    string user_group = 7;
+    map<string, string> fields = 8;
+}
+
+// repeated string permissions = 8 [packed=true];
+
