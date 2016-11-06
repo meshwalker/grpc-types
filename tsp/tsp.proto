@@ -3,8 +3,8 @@ syntax = "proto3";
 package tsp;
 
 // Interface exported by the server.
-service UserManager {
-  rpc RegisterCluster(Empty) returns (ListUserResponse) {}
+service TSP {
+  rpc RegisterCluster(RegisterClusterRequest) returns (RegisterClusterResponse) {}
   rpc CreateUser(CreateUserRequest) returns (User) {}
   rpc UpdateUser(User) returns (User) {}
   rpc DeleteUser(User) returns (Empty) {}
@@ -14,12 +14,12 @@ message Empty {}
 
 message RegisterClusterRequest {
     string UserToken = 1;
-    string Subdomain = 2;
-    string 
+    string Password = 2;
+    string Subdomain = 3;
 }
 
 message RegisterClusterResponse {
-    OTPToken
+    string otp_token = 1;
 }
 
 message CreateUserRequest {
