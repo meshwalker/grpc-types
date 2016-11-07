@@ -3,7 +3,7 @@ syntax = "proto3";
 package tsp;
 
 // Interface exported by the server.
-service TSP {
+service Tsp {
   rpc RegisterCluster(RegisterClusterRequest) returns (RegisterClusterResponse) {}
   rpc CreateUser(CreateUserRequest) returns (User) {}
   rpc UpdateUser(User) returns (User) {}
