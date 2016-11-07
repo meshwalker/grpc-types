@@ -1,5 +1,9 @@
 syntax = "proto3";
 
+option java_multiple_files = true;
+option java_package = "meshwalker.grpc.tsp";
+option java_outer_classname = "Tsp";
+
 package tsp;
 
 // Interface exported by the server.
@@ -7,10 +11,12 @@ service Tsp {
   rpc RegisterCluster(RegisterClusterRequest) returns (RegisterClusterResponse) {}
   rpc CreateUser(CreateUserRequest) returns (User) {}
   rpc UpdateUser(User) returns (User) {}
-  rpc DeleteUser(User) returns (Empty) {}
+  rpc DeleteUser(User) returns (User) {}
 }
 
-message Empty {}
+message Empty {
+
+}
 
 message RegisterClusterRequest {
     string UserToken = 1;
