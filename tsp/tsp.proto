@@ -21,15 +21,16 @@ message Empty {
 }
 
 message PublishAppRequest {
-    string app_name = 1;
-    string description = 2;
-    string publisher = 3;
-    string version = 4;
-    bytes app_data = 5;
+    string app_namespace = 1;
+    string app_name = 2;
+    string description = 3;
+    string publisher = 4;
+    string version = 5;
+    bytes app_data = 6;
 }
 
 message PublishAppResponse{
-    string app_id = 1; 
+    string app_namespace = 1; 
     string app_name = 2;
     string published = 3;
 }
@@ -39,7 +40,7 @@ message ListAppsResponse {
 }
 
 message ListAppObject {
-    string app_id = 1;
+    string app_namespace = 1;
     string app_name = 2;
     string description = 3;
     string publisher = 4;
@@ -47,7 +48,7 @@ message ListAppObject {
 }
 
 message GetAppRequest {
-    string app_id = 1;
+    string app_namespace = 1;
 }
 
 message GetAppResponse {
