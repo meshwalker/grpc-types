@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.meshwalker.grpc.reco";
+option java_outer_classname = "reco";
+
+package reco;
+
+// Interface exported by the server.
+service Reco {
+    rpc Status(Empty) returns (StatusMsg) {}
+    rpc InstallApp(InstallAppRequest) returns (StatusMsg) {}
+    rpc DeleteApp(DeleteAppRequest) returns (StatusMsg) {}
+    rpc UpdateApps(Empty) returns (UpdateAppResponse) {}
+    rpc ListApps(Empty) returns (ListAppsResponse) {}
+}
+
+message Empty {}
+
+
+message InstallAppRequest {
+    string app_namespace = 1;
+}
+
+message UpdateAppResponse {
+     string status = 1;     
+    string msg = 2;    
+    repeated string updated_apps = 3;
+}
+
+message DeleteAppRequest {
+    string app_namespace = 1;
+}
+
+message StatusMsg {
+     string status = 1;     
+    string msg = 2;    
+}
+
+message ListAppsResponse {
+    string app_namespace = 1;
+    string app_name = 2;
+}
+
